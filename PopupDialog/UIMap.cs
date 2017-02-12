@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using mshtml;
 
-namespace DataDrivenFramework
+namespace PopupDialog
 {
     using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
     using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
@@ -85,10 +85,11 @@ namespace DataDrivenFramework
         /// <summary>
         /// Booking - Use 'BookingParams' to pass parameters into this method.
         /// </summary>
-        public void Booking(TestContext tContext)
+        public void Booking()
         {
             #region Variable Declarations
 
+            WinControl uI_CreditPopup = this.UIMessagefromwebpageWindow.UIMessagefromwebpageDialog;
             HtmlEdit uI_HoteName = this.UIMSNcomHotmailOutlookWindow.UIAdactIncomBookAHotelDocument.UIHotel_name_disEdit;
             HtmlEdit uI_OrderNo = this.UIMSNcomHotmailOutlookWindow.UIAdactIncomHotelBookiDocument.UIOrder_noEdit;
             HtmlComboBox uILocationComboBox = this.UIMSNcomHotmailOutlookWindow.UIAdactIncomSearchHoteDocument.UILocationComboBox;
@@ -111,11 +112,8 @@ namespace DataDrivenFramework
             WinButton uICloseButton = this.UIMSNcomHotmailOutlookWindow.UIMSNcomHotmailOutlookTitleBar.UICloseButton;
             #endregion
 
-            // Select the next city in 'location' combo box
-            uILocationComboBox.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
-
-            uILocationComboBox.SelectedItem = tContext.DataRow["Location"].ToString();
-            Console.WriteLine("{0} was selected as city", tContext.DataRow["Location"].ToString());
+            // Select 'Sydney' in 'location' combo box
+            uILocationComboBox.SelectedItem = this.BookingParams.UILocationComboBoxSelectedItem;
 
             // Select '2 - Two' in 'room_nos' combo box
             uIRoom_nosComboBox.SelectedItem = this.BookingParams.UIRoom_nosComboBoxSelectedItem;
@@ -131,7 +129,7 @@ namespace DataDrivenFramework
 
             if (uIRadiobutton_2RadioButton.WaitForControlExist(10000))
             {
-                Console.WriteLine("The hotellist appeared");
+                Console.WriteLine("City lisr appeared");
             }
             else
             {
@@ -149,7 +147,7 @@ namespace DataDrivenFramework
 
             if (uI_HoteName.WaitForControlExist(10000))
             {
-                Console.WriteLine("{0} was selected",uI_HoteName.Text);
+                Console.WriteLine(uI_HoteName.Text);
             }
             else
             {
@@ -186,9 +184,26 @@ namespace DataDrivenFramework
             // Click 'Book Now' button
             Mouse.Click(uIBookNowButton, new Point(34, 14));
 
-            // Wait for 5 seconds for user delay between actions; Click 'Logout' link
+            //referance to popup  UIMessagefromwebpageWindow.UIMessagefromwebpageDialog
+
+            // Wait for 5 seconds for user delay between actions; 
             //Playback.Wait(5000);
 
+            //Handle the credit card error message if it appears
+            try
+            {
+                BrowserWindow browserWindow=new BrowserWindow();
+                browserWindow.PerformDialogAction(BrowserDialogAction.Ok);
+                Console.WriteLine("Popup Dialog appeared");
+
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("Popup Dialog did not appeared");
+                Playback.PlaybackSettings.ContinueOnError = true;
+            }
+
+            //Wait for order number
             uI_OrderNo.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
 
             if (uI_OrderNo.WaitForControlExist(10000))

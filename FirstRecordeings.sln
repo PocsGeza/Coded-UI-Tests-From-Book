@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddSyncronization", "AddSyn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataDrivenFramework", "DataDrivenFramework\DataDrivenFramework.csproj", "{85CAD1F4-D07D-4BAD-9221-21D1502128FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopupDialog", "PopupDialog\PopupDialog.csproj", "{9E5BDB5C-9800-4608-9F08-1588BA6EAAD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{85CAD1F4-D07D-4BAD-9221-21D1502128FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85CAD1F4-D07D-4BAD-9221-21D1502128FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85CAD1F4-D07D-4BAD-9221-21D1502128FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E5BDB5C-9800-4608-9F08-1588BA6EAAD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E5BDB5C-9800-4608-9F08-1588BA6EAAD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E5BDB5C-9800-4608-9F08-1588BA6EAAD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E5BDB5C-9800-4608-9F08-1588BA6EAAD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

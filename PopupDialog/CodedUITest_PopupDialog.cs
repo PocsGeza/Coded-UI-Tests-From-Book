@@ -10,33 +10,25 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 
 
-namespace DataDrivenFramework
+namespace PopupDialog
 {
     /// <summary>
-    /// Summary description for CodedUITest_DataDrivenFramework
+    /// Summary description for CodedUITest_PopupDialog
     /// </summary>
     [CodedUITest]
-    public class CodedUITest_DataDrivenFramework
+    public class CodedUITest_PopupDialog
     {
-        public CodedUITest_DataDrivenFramework()
+        public CodedUITest_PopupDialog()
         {
         }
 
-        //[TestMethod]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
-            "|DataDirectory|\\DataFile.csv", "DataFile#csv", DataAccessMethod.Sequential)
-        , DeploymentItem("DataFile.CSV"), TestMethod]
-
+        [TestMethod]
         public void CodedUITestMethod1()
         {
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
-
-            if(Functions.ReadDataFromCSV(TestContext))
-            {
             this.UIMap.Login();
             this.UIMap.MyFirstAssert();
-            this.UIMap.Booking(TestContext);
-            }
+            this.UIMap.Booking();
         }
 
         #region Additional test attributes
