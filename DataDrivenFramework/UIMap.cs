@@ -85,7 +85,7 @@ namespace DataDrivenFramework
         /// <summary>
         /// Booking - Use 'BookingParams' to pass parameters into this method.
         /// </summary>
-        public void Booking()
+        public void Booking(TestContext tContext)
         {
             #region Variable Declarations
 
@@ -111,8 +111,10 @@ namespace DataDrivenFramework
             WinButton uICloseButton = this.UIMSNcomHotmailOutlookWindow.UIMSNcomHotmailOutlookTitleBar.UICloseButton;
             #endregion
 
-            // Select 'Sydney' in 'location' combo box
-            uILocationComboBox.SelectedItem = this.BookingParams.UILocationComboBoxSelectedItem;
+            // Select the next city in 'location' combo box
+            uILocationComboBox.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+
+            uILocationComboBox.SelectedItem = tContext.DataRow["Location"].ToString();
 
             // Select '2 - Two' in 'room_nos' combo box
             uIRoom_nosComboBox.SelectedItem = this.BookingParams.UIRoom_nosComboBoxSelectedItem;
@@ -128,7 +130,7 @@ namespace DataDrivenFramework
 
             if (uIRadiobutton_2RadioButton.WaitForControlExist(10000))
             {
-                Console.WriteLine("City lisr appeared");
+                Console.WriteLine("{0} was selected");
             }
             else
             {
