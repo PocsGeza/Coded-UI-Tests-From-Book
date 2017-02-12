@@ -28,7 +28,7 @@ namespace Fisrdt_recordeing
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
             this.UIMap.Login();
             this.UIMap.Booking();
-            //dgsdgwegweg
+           
         }
 
         #region Additional test attributes

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fisrdt_recordeing", "Fisrdt_recordeing\Fisrdt_recordeing.csproj", "{6EB3F598-A918-404E-AF40-E95AF88005A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "First_recordeing", "Fisrdt_recordeing\First_recordeing.csproj", "{6EB3F598-A918-404E-AF40-E95AF88005A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddAssertions", "AddAssertions\AddAssertions.csproj", "{EA0AB73F-0156-4B62-89B8-435FECE14DD4}"
 EndProject
