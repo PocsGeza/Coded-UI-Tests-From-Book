@@ -147,6 +147,10 @@ namespace PopupDialog
 
             if (uI_HoteName.WaitForControlExist(10000))
             {
+                BrowserWindow browserWindow= new BrowserWindow();
+                    Image dataForm = browserWindow.CaptureImage();
+                dataForm.Save("C:/Users/mopro/Desktop/Projects/Coded UI/Scripts/dataForm.jpg");
+
                 Console.WriteLine(uI_HoteName.Text);
             }
             else
@@ -193,7 +197,9 @@ namespace PopupDialog
             try
             {
                 BrowserWindow browserWindow=new BrowserWindow();
-                browserWindow.PerformDialogAction(BrowserDialogAction.Ok);
+                Image imgScreeshot = browserWindow.CaptureImage();
+                    imgScreeshot.Save("C:/Users/mopro/Desktop/Projects/Coded UI/Scripts/PopupDialog.jpg");
+                    browserWindow.PerformDialogAction(BrowserDialogAction.Ok);
                 Console.WriteLine("Popup Dialog appeared");
 
             }
@@ -208,7 +214,12 @@ namespace PopupDialog
 
             if (uI_OrderNo.WaitForControlExist(10000))
             {
-                Console.WriteLine(uI_OrderNo.Text);
+                Playback.Wait(500);
+                Console.WriteLine("Booking Succesfull - "+ uI_OrderNo.Text);
+
+                Image imgScreeshot = uI_OrderNo.CaptureImage();
+                imgScreeshot.Save("C:/Users/mopro/Desktop/Projects/Coded UI/Scripts/Bookingdetails.jpg");
+
                 Mouse.Click(uILogoutHyperlink, new Point(30, 13));
             }
             else                                                  
