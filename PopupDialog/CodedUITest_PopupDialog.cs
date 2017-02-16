@@ -82,5 +82,7 @@ namespace PopupDialog
         }
 
         private UIMap map;
+
+        //Tibi test
     }
 }
